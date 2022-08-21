@@ -2,6 +2,7 @@ package com.dongheehan.springboot.service.posts;
 
 import com.dongheehan.springboot.domain.posts.Posts;
 import com.dongheehan.springboot.domain.posts.PostsRepository;
+import com.dongheehan.springboot.web.dto.PostsResponseDto;
 import com.dongheehan.springboot.web.dto.PostsSaveRequestDto;
 import com.dongheehan.springboot.web.dto.PostsUpdateRequestDto;
 import lombok.RequiredArgsConstructor;
@@ -25,5 +26,9 @@ public class PostsService {
                 .orElseThrow(() -> new IllegalArgumentException("해당 게시글이 없습니다. id=" + id));
         posts.update(requestDto.getTitle(), requestDto.getContent());
         return id;
+    }
+
+    public PostsResponseDto findById(Long id) {
+        return null;
     }
 }

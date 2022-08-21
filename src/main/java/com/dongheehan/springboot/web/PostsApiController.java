@@ -1,6 +1,7 @@
 package com.dongheehan.springboot.web;
 
 import com.dongheehan.springboot.service.posts.PostsService;
+import com.dongheehan.springboot.web.dto.PostsResponseDto;
 import com.dongheehan.springboot.web.dto.PostsSaveRequestDto;
 import com.dongheehan.springboot.web.dto.PostsUpdateRequestDto;
 import lombok.RequiredArgsConstructor;
@@ -20,5 +21,10 @@ public class PostsApiController {
     @PutMapping("/api/v1/posts/{id}")
     public Long update(@PathVariable Long id, @RequestBody PostsUpdateRequestDto requestDto) {
         return postsService.update(id, requestDto);
+    }
+
+    @GetMapping("/api/v1/posts/{id}")
+    public PostsResponseDto findById(@PathVariable Long id) {
+        return postsService.findById(id);
     }
 }
